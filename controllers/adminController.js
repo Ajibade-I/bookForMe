@@ -7,7 +7,6 @@ const ParentHotel = require("../models/parentHotel");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-
 const addAdmin = async (req, res) => {
   await Admin.sync();
 
@@ -79,4 +78,8 @@ const adminLogin = async (req, res) => {
   return succesResponse(res, "Login successfull");
 };
 
-module.exports = { addAdmin, adminLogin };
+const hello = async (req, res) => {
+  console.log("Welcome to book for me");
+};
+
+module.exports = { addAdmin, adminLogin, hello };
