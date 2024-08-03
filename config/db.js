@@ -2,13 +2,20 @@ const { Sequelize } = require("sequelize");
 require("dotenv").config();
 
 const sequelize = new Sequelize(
-  "booking_system",
+  "defaultdb", // The default database name for CockroachDB
   process.env.DB_USER,
   process.env.DB_PWD,
   {
-    dialect: "mysql",
+    dialect: "postgres", // Use PostgreSQL dialect for CockroachDB
     host: process.env.HOST,
-    // port: process.env.DB_PORT,
+    port: process.env.DB_PORT,
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false, // If you need to reject unauthorized certificates
+      },
+    },
+    // Optional: Uncomment and configure if needed
     // pool: {
     //   max: 100,
     //   min: 0,
@@ -22,9 +29,9 @@ const sequelize = new Sequelize(
 const connectDB = async () => {
   try {
     await sequelize.authenticate();
-    console.log("Connected to the MySQL Server with Sequelize");
+    console.log("Connected to CockroachDB with Sequelize");
   } catch (error) {
-    console.error("Error connecting to server with Sequelize:", error);
+    console.error("Error connecting to CockroachDB with Sequelize:", error);
   }
 };
 
