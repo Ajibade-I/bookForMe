@@ -3,6 +3,7 @@ const { succesResponse } = require("../lib/helpers/utility-functions");
 const { validateAdmin } = require("../lib/validation/adminvalidation");
 const { validateLogin } = require("../lib/validation/userValidation");
 const Admin = require("../models/admin");
+const Guest = require("../models/guest");
 const ParentHotel = require("../models/parentHotel");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -82,4 +83,9 @@ const hello = async (req, res) => {
   console.log("Welcome to book for me");
 };
 
-module.exports = { addAdmin, adminLogin, hello };
+const getAllGuests = async (req, res) => {
+  const guests = await Guest.findAll();
+  res.status(200).json({ guests });
+};
+
+module.exports = { addAdmin, adminLogin, hello, getAllGuests };
