@@ -76,7 +76,7 @@ const adminLogin = async (req, res) => {
     expires: new Date(Date.now() + oneDay),
   });
 
-  return succesResponse(res, "Login successfull");
+  return succesResponse(res, "Login successfully");
 };
 
 const hello = async (req, res) => {
