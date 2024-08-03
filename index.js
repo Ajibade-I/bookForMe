@@ -21,7 +21,13 @@ app.use("/api/hotel", accesslogs, hotelRoutes);
 app.use("/api/reservation", accesslogs, reservationRoutes);
 app.use("/api/admin", accesslogs, adminRoutes);
 
-
+async function hello(req, res) {
+    console.log("Welcome!!!!");
+    res.send("Welcome!!!!"); 
+  }
+  
+  
+  app.use("/", accesslogs, hello);
 app.use(notFound)
 app.use(errorHandler)
 

@@ -88,4 +88,4 @@ const getAllGuests = async (req, res) => {
   res.status(200).json({ message: "these are your Guests", guests });
 };
 
-module.exports = { addAdmin, adminLogin, hello, getAllGuests };
+module.exports = { addAdmin, adminLogin, getAllGuests };
