@@ -80,7 +80,7 @@ const adminLogin = async (req, res) => {
 };
 
 const hello = async (req, res) => {
-  console.log("Welcome to book for me");
+  console.log("Welcome!!!!");
 };
 
 const getAllGuests = async (req, res) => {
