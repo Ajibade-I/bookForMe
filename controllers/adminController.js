@@ -85,7 +85,7 @@ const hello = async (req, res) => {
 
 const getAllGuests = async (req, res) => {
   const guests = await Guest.findAll();
-  res.status(200).json({ guests });
+  res.status(200).json({ message: "these are your Guests", guests });
 };
 
 module.exports = { addAdmin, adminLogin, hello, getAllGuests };
